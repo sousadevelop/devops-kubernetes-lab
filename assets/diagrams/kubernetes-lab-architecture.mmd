@@ -1,0 +1,10 @@
+flowchart LR
+    A["Local lab user"] --> B["Portal service<br/>NodePort"]
+    B --> C["Portal workload"]
+    C --> D["News system service<br/>NodePort"]
+    D --> E["News system workload"]
+    E --> F["Database service<br/>ClusterIP"]
+    F --> G["Database workload"]
+    E --> H["Image and session PVCs"]
+    I["Metrics server"] --> J["HPA exercise"]
+    J --> C
